@@ -1,0 +1,153 @@
+<div DesafioSlide>
+    <p>
+        <img src="http://files.cod3r.com.br/curso-web/imagem1.jpg"
+        alt="Muro da Cidade"
+        width="513" height="342"
+        title="Muro Da Cidade Por Tarso Bessa">
+    </p>
+
+    <p>
+        <img src="http://files.cod3r.com.br/curso-web/imagem2.gif" 
+        alt="Intro Cod3r" height="342">
+    </p>
+
+    <p class="Circular">
+        <img src="http://files.cod3r.com.br/curso-web/imagem3.png" 
+        alt="Rio De Janeiro" height="342">
+    </p>
+
+    <p class="Texto">
+        <img src="http://files.cod3r.com.br/curso-web/avatar.jpg"
+        alt="Avatar" height="50" align="left">
+        Texto dasjfsdfsdfs dsfsdf sdf sdf sdf sdfsdfn sdfnsd sdfsdfnsdfn sfsdf ssdfs fsdf sdfsdfkjnsdf
+        s sdfsdfjsdikfjsdkfmwseijfs sdfisdhjnf oisjfnseikfjnsd sdfj iosdfhjsiefhjnsdf
+        sdfisefjhsief jsdifhujse asdfsdf asdasd asdasd sdlfjmsdjkgbndsfjkgvn sdjfsdj  sdf 
+        asdasd asd asd asd asd asfnsdvkjhbsdfj nsdf hbsdjfgb sdjkfbn sd dsa sdf sdfsd 
+        asasdasd asd asd asd asd asd asd asd asd asd asd asd asd asd asdsdf sdf sdf 
+        d asdasdasd asdas df sdfasdf fnsuiohfj sefjsefh siefhjsefhseiodfj sd fsdf 
+    </p>
+
+    <p class="Cidade"></p>
+
+    <p>
+        <picture>
+            <source srcset="http://files.cod3r.com.br/curso-web/logo-larga.png"
+            media="(min-width: 600px)">
+            <img src="http://files.cod3r.com.br/curso-web/logo-estreita.png" alt="logo">
+        </picture>
+    </p>
+
+</div>
+
+<style>
+    p {
+        position: absolute;
+        display: none;
+    }
+
+    .Circular {
+        width: 513px;
+        background-color: #444;
+    }
+
+    .Texto {
+        width: 400px;
+    }
+
+    .Texto img {
+        margin-right: 10px;
+    }
+
+    .Cidade {
+        width: 513px;
+        height: 342px;
+        background-image: url('http://files.cod3r.com.br/curso-web/imagem4.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 200%;
+    }
+
+</style>
+
+<script>
+    function mover(elem, inicio, fim, passo, callback) {
+        const novoInicio = inicio - passo
+        if(novoInicio >= fim){
+            elem.style.left = novoInicio + 'px'
+            setTimeout(() => mover(elem, novoInicio, fim, passo, callback), 7)
+        }else {
+            callback()
+        }
+    }
+
+    //const p = document.querySelector('[DesafioSlide] > p')
+    //p.style.display = 'block'
+    //mover(p, 1500, -520, 5, () =>{
+    //     console.log('Terminou')
+    //})
+
+    function slider() {
+        const elementos = document.querySelectorAll('[DesafioSlide] > p')
+        const slides = Array.from(elementos)
+        exibirSlides(slides, slides[0])
+    }
+
+    function exibirSlides(slides, slide) {
+        slide.style.display = 'block'
+
+        const inicio = innerWidth
+        const fim = -slide.clientWidth
+        
+        slide.style.left = `${inicio}px`
+
+        mover(slide, inicio, fim, 5, () => {
+            slide.style.display = 'none'
+            exibirSlides(slides, getNext(slides, slide))
+        })
+    }
+
+        function getNext(lista, atual) {
+            const i = lista.indexOf(atual) + 1
+            return i < lista.length ? lista[i] : lista[0]
+        }
+
+    
+
+    slider()
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<script>
+showSlides()
+var slideIndex = 0;
+
+function showSlides() {
+    var slides = document.getElementsByClassName('[DesafioSlide]');
+    for (var i = 0; i < slides.length; i++){
+        slide[i].style.display = 'none';
+    }
+    slideIndex++;
+    
+    if(slideIndex > slide.length) {slideIndex = 1}
+    slides[slideIndex-1].style.display = 'block';
+    setTimeout(showSlides, 2000)
+}
+</script>
+-->

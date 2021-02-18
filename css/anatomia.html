@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Anatomia CSS</title>
+    <style>
+        .seletor {
+            color: white;
+            font-size: 30px;
+            text-align: center;
+
+            /* multiplos valores */
+            border: solid 5px navy;
+            font-family: Helvetica, sans-serif;
+            /* fumções */
+            width: calc(50% - 40px);
+            background-color: rgb(10, 150, 40);
+        }
+
+        /* Usando uma pseudo-classe
+        .seletor:hover {
+            background-color: orangered;
+        }
+
+        Usando um pseudo-elemento */
+        /* .seletor::first-letter {
+            font-size: 60px;
+            font-weight: bold;
+        } */
+
+
+
+
+    </style>
+</head>
+
+<body>
+    <div class="seletor">Conteúdo</div>
+</body>
+
+    <script>
+        const div = document.querySelector('div')
+        div.style.position = 'absolute'
+
+        div.onmousemove = e => {
+            const target = e.target
+            target.style.cursor = 'move'
+            if (e.buttons){
+                target.style.top = `${e.clientY - (target.clientHeight / 2)}px`
+                target.style.left = `${e.clientX - (target.clientWidth / 2)}px`
+            }
+        }
+
+
+
+    </script>
+
+
+</html>
