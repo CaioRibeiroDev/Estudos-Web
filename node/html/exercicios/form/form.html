@@ -1,0 +1,58 @@
+<h1>Formulario</h1>
+
+<form method="POST">
+
+    <input type="hidden" name="id" value="3">
+    <input type="text" name="nome">
+    <input type="password" name="senha">
+    <textarea name="Biografia" cols="30" rows="10"></textarea>
+    
+
+    <div>
+        <input type="radio" name="tipo" value="Admin">Admin
+        <input type="radio" name="tipo" value="Professor"> Professor
+        <input type="radio" name="tipo" value="Aluno"> Aluno
+    </div>
+
+    <div>
+        <input type="checkbox" name="ativo">Ativo
+    </div>
+
+    <select name="Estado">
+        <option value="">Selecione</option>
+        <option value="ac">Acre</option>
+        <option value="sp">São Paulo</option>
+        <option value="ba">Bahia</option>
+    </select>
+
+    <select name="Interesse" multiple size= "5">
+        <option value="Java">Java</option>
+        <option value="Python">Python</option>
+        <option value="JavaScript">JavaScript</option>
+        <option value="Go">Go</option>
+        <option value="Ruby">Ruby</option>
+        <option value="C">C</option>
+        <option value="C#">C#</option>
+    </select>
+    <button formaction="http://localhost:8080/usuarios">Incluir</button>
+    <button formaction="http://localhost:8080/usuarios/3">Alterar</button>
+    
+
+</form>
+
+<style>
+    input, textarea{
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    input[type = "radio"], input[type = "checkbox"]{
+        display: inline;
+    }
+
+    select {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+</style>
